@@ -70,7 +70,7 @@ class FileEntity implements \IteratorAggregate
         return $this;
     }
 
-    public function getIterator()
+    public function getIterator(): \Iterator
     {
         return $this->getMetadatas()->getIterator();
     }
