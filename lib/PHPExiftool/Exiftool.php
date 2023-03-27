@@ -46,7 +46,7 @@ class Exiftool implements LoggerAwareInterface
     public function executeCommand($command, $timeout = 60)
     {
         $command = ($this->binaryPath == null? self::getBinary(): $this->binaryPath) . ' ' . $command;
-        $process = new Process($command);
+        $process = Process::fromShellCommandline($command);
         $process->setTimeout($timeout);
 
         $this->logger->info(sprintf('Exiftool executes command %s', $process->getCommandLine()));
